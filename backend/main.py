@@ -8,15 +8,11 @@ Base.metadata.create_all(bind=engine)
 
 logging.basicConfig(level=logging.INFO)
 
-origins = [
-    "http://localhost:5174",  # Next.js local
-    "https://tudominio.com",  # Producción
-]
 
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Puedes usar ["*"] para permitir todo (no recomendado en producción)
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
