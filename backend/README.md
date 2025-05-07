@@ -4,31 +4,28 @@
 
 ## Descripción del Proyecto
 
-Esta es una API RESTful desarrollada con FastAPI para gestionar una aplicación de reservas de habitaciones. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) tanto para habitaciones como para reservas. Las habitaciones pueden ser de tipo simple, doble o suite, y cada una tiene un precio por noche. Las reservas incluyen el nombre del huésped, la fecha de inicio y fin de la reserva, y están asociadas a una habitación específica.
+Esta es una API RESTful desarrollada con FastAPI para gestionar una aplicación de eventos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para eventos y adicionalmente ingresar y registrarse en el aplicativo y unirse a un evento.
 
 ## Características 
-- **Gestión de Habitaciones** 
-- Crear, leer, actualizar y eliminar habitaciones. 
-- Cada habitación tiene un número, tipo (simple, doble, suite), precio por noche, y disponibilidad. 
-- **Gestión de Reservas** 
--  Crear, leer, actualizar y eliminar reservas. 
--  Cada reserva incluye el nombre del huésped, la fecha de inicio y fin de la reserva, y la habitación asociada. 
--  Validación de disponibilidad de la habitación antes de crear una reserva. 
-- Validación para evitar conflictos de fechas en las reservas. 
+- **Gestión de eventos** 
+- Crear, leer, actualizar y eliminar Eventos. 
+- Cada evento tiene un número de personas que se permite ingresar como invitado. 
+- Cada evento existen 4 tipos de roles, si organizar, invitado, administrador de su evento o asistente. 
+  
 ## Requisitos 
 - Python 3.8+ 
 - FastAPI 
 -  SQLAlchemy 
 -  Pydantic 
--  SQLite 
+-  PostgresSQL 
 
 ## Instalación y Configuración
 
 ### Pasos para Usar Localmente
 
-1. clonar el proyecto con el siguiente comando: `git clone https://github.com/guille1999utp/epic`
+1. clonar el proyecto con el siguiente comando: `git clone https://github.com/guille1999utp/tusdatos-prueba.git`
 
-2. nos ubicamos dentro del proyecto: `cd epic`
+2. nos ubicamos dentro del proyecto: `cd tusdatos-prueba/backend`
 
 3. Instalamos las dependencias del proyecto con el siguiente comando (se debe tener instalado python y pip):
 
@@ -54,5 +51,4 @@ Si quieres ver más información sobre los endpoints disponibles, ingresa a la s
 
 ### Postman
 
-si quieres utilizar los enpoints directamente en postman puedes exportar los enpoints del archivo llamado epic del siguiente link del repositorio publico de postman: 
-[https://www.postman.com/guille2001/workspace/public/collection/17417694-fc913df3-7a22-4d29-8c31-b52388ec8db0](https://www.postman.com/guille2001/workspace/public/collection/17417694-fc913df3-7a22-4d29-8c31-b52388ec8db0)
+si quieres utilizar los enpoints directamente en postman puedes import los enpoints del archivo llamado `tusdatos` que esta en la ruta raiz de este proyecto

@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+<div align="center">
+  
+  <br />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![imagen-2025-05-07-155323959.png](https://i.postimg.cc/q7002jNZ/imagen-2025-05-07-155323959.png)](https://postimg.cc/JsT9L3cb)
 
-Currently, two official plugins are available:
+  <br/>
+ 
+  <div>
+  <br/>
+    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
+    <img src="https://img.shields.io/badge/-Typescript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+    <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcnui" />
+    
+  </div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <h2 align="center">Gestion de eventos</h2>
 
-## Expanding the ESLint configuration
+   <div align="center">
+     En esta aplicacion podras crear tus eventos, podras unirte a eventos de otras personas y podras realizar una mejor gestion de tu aplicativo a la hora de realizar eventos.
+    </div>
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📋 <a name="table">Tabla de contenido</a>
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. ⚙ [Tecnologias](#tech-stack)
+2. 🤸 [Comenzar con la aplicacion en entorno local](#quick-start)
+3.  [Fuentes externas que se usaron para la construccion del proyecto](#font-extern)
+
+
+## <a name="tech-stack">⚙ Tecnologias</a>
+
+[![My Skills](https://skillicons.dev/icons?i=tailwind,typescript,react,postgresql)](https://skillicons.dev)<br/>
+
+
+
+## <a name="quick-start">🤸 Comenzar con la aplicacion en entorno local</a>
+
+Sigue los siguientes pasos para correr el proyecto en tu local.
+
+*Prerequisitos*
+
+Asegurate de tener los siguientes paquetes instalados en tu maquina local:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+*Clona el repositorio*
+
+```bash
+git clone https://github.com/guille1999utp/tusdatos-prueba.git
+cd tusdatos-prueba/frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+*instalacion*
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Instala las dependencias del proyecto con npm:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+*Corre el proyecto*
+
+```bash
+npm run dev
+```
+
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador para ver el proyecto.
+
+
+## <a name="font-extern"> Fuentes externas que se usaron para la construccion del proyecto</a>
+
+<ul>
+  <li>https://theme-toggle.rdsx.dev/</li>
+  <li>https://neumorphism.io/#e0e0e0</li>
+  <li>https://convertio.co/es/png-ico/</li>
+  <li> https://github.com/tandpfun/skill-icons#readme</li>
+  <li>https://neon.tech/</li>
+</ul>
