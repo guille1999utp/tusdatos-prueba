@@ -16,7 +16,7 @@ export default class EventsService {
     public static async getAll(filters?: IFilters): Promise<IGetEventsResp> {
         return handleApiErrors<IGetEventsResp>(() =>
             clientHTTP.get<IGetEventsResp>(
-                filters ? transformToQueryString("event", filters) : "event"           
+                filters ? transformToQueryString("event/my-events", filters) : "event/my-events"           
             )
         ) 
     }
@@ -56,6 +56,17 @@ export default class EventsService {
         return await handleApiErrors<IInsertEventsResp>(
           () =>
             clientHTTP.post<IInsertEventsResp>(`event/${obj.id}`, obj),
+          errorCallback
+        );
+      }
+
+      public static async registerUser(
+        obj: any,
+        errorCallback: (msg: string) => void
+      ): Promise<IInsertEventsResp> {
+        return await handleApiErrors<IInsertEventsResp>(
+          () =>
+            clientHTTP.post<IInsertEventsResp>(`event/${Number(obj.id)}/register/${obj.user_id}`, obj),
           errorCallback
         );
       }

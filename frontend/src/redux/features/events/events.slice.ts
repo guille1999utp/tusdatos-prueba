@@ -1,10 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { IEvents } from '@/models/app/events/events.model';
 import type { IGetEventsResp } from '@/models/app/events/get-all/get-all-events.model';
-import { deleteEvents, getAllEvents, insertEvents } from './events.thunks';
+import { deleteEvents, getAllEvents, getMyEvents, insertEvents } from './events.thunks';
 
 interface IProps {
   listEvents: IEvents[];
+  listMyEvents: IEvents[];
   isLoadingGetEvents: boolean;
   isLoadingInsertEvents: boolean;
   isLoadingDeleteEvents: boolean;
@@ -13,6 +14,7 @@ interface IProps {
 
 const initialState: IProps = {
   listEvents: [],
+  listMyEvents: [],
   isLoadingGetEvents: false,
   isLoadingInsertEvents: false,
   isLoadingDeleteEvents: false,
@@ -35,6 +37,17 @@ export const eventsSlice = createSlice({
         state.isLoadingGetEvents = false;
       })
       .addCase(getAllEvents.rejected, state => {
+        state.isLoadingGetEvents = false;
+      })
+
+      .addCase(getMyEvents.pending, state => {
+        state.isLoadingGetEvents = true;
+      })
+      .addCase(getMyEvents.fulfilled, (state, action: PayloadAction<IGetEventsResp>) => {
+        state.listMyEvents = action.payload;
+        state.isLoadingGetEvents = false;
+      })
+      .addCase(getMyEvents.rejected, state => {
         state.isLoadingGetEvents = false;
       })
 

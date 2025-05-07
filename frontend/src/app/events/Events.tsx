@@ -5,13 +5,14 @@ import { AuroraText } from "@/components/magicui/aurora-text"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { useTableListEvents } from "@/hooks/app/events/useTableEvents"
+import { FormAssignUser } from "@/modules/app/events/components/FormAssignUser"
 // import { DataTable } from "@/modules/events/data-table"
 import { FormEvents } from "@/modules/app/events/components/FormEvents"
 
 
 export const Events = () => {
 
-  const { listEvents, onMounted, columns, openDialogEvents, setOpenDialogEvents, currentEventsState, setCurrentEventsState, dialogConfirmDelete, setDialogConfirmDelete, handleDelete, isLoadingDeleteEvents } = useTableListEvents()
+  const { listMyEvents, onMounted, columns, openDialogEvents, setOpenDialogEvents, currentEventsState, setCurrentEventsState, dialogConfirmDelete, setDialogConfirmDelete, handleDelete, isLoadingDeleteEvents, handleCloseEventsDialog, openDialogAssignUser, handleCloseAssignUser } = useTableListEvents()
 
   return (
     <>
@@ -29,10 +30,10 @@ export const Events = () => {
         </div>
         <Separator />
 
-        <DataTableDemo columns={columns} data={listEvents} />
+        <DataTableDemo columns={columns} data={listMyEvents} />
       </div>
-      <MainDialog title="Eventos" open={openDialogEvents} setOpenModal={setOpenDialogEvents}>
-        <FormEvents onMounted={onMounted} closeModal={setOpenDialogEvents} currentEventsState={currentEventsState} />
+      <MainDialog title="Eventos" open={openDialogEvents} setOpenModal={handleCloseEventsDialog}>
+        <FormEvents onMounted={onMounted} closeModal={handleCloseEventsDialog} currentEventsState={currentEventsState} />
       </MainDialog>
 
       <MainDialog title="Eventos" open={dialogConfirmDelete.open} setOpenModal={() => setDialogConfirmDelete({ open: false, id: 0 })}>
@@ -45,6 +46,10 @@ export const Events = () => {
             {isLoadingDeleteEvents ? "loading..." : 'Delete'}
           </>
         </Button>
+      </MainDialog>
+
+      <MainDialog title="Asignar" open={openDialogAssignUser.open} setOpenModal={() => handleCloseAssignUser()}>
+        <FormAssignUser closeModal={handleCloseAssignUser} onMounted={onMounted} idEvent={openDialogAssignUser.id} />
       </MainDialog>
     </>
   )

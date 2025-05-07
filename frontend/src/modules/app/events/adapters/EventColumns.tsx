@@ -13,6 +13,7 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 export const columnsEvents = (
   handleOpenDialogAndSetCurrentWorkshops: (data: IEvents) => void,
   handleOpenConfirmDelete: (id: number) => void,
+  handleOpenAssignUser: (id: number) => void
 ) => [
     {
       id: "select",
@@ -72,6 +73,9 @@ export const columnsEvents = (
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => handleOpenDialogAndSetCurrentWorkshops(row.original)}>
                 Editar
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleOpenAssignUser(row.original.id)}>
+                Asignar
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => row.id && handleOpenConfirmDelete(Number(row.original.id))}>
                 Eliminar

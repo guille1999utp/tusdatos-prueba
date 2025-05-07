@@ -23,7 +23,7 @@ export const FormEventsSuscribe = ({ id, setOpenModal, onMounted }: {
             setOpenModal({ open: false, id: null })
             onMounted()
         } else {
-            toast("Error al suscribirse al evento")
+            toast("No se puede suscribir a este evento")
         }
     }
 

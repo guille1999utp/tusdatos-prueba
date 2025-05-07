@@ -1,19 +1,23 @@
 import { columnsEvents } from "@/modules/app/events/adapters/EventColumns";
-import { deleteEvents, getAllEvents } from "@/redux/features/events/events.thunks";
+import { deleteEvents, getMyEvents } from "@/redux/features/events/events.thunks";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useEffect, useCallback } from "react";
 import useDialogState from "./useDialogState";
 import { toast } from "react-toastify";
+import { getAllUsers } from "@/redux/features/users/users.thunks";
+import { getAllRoles } from "@/redux/features/roles/roles.thunks";
 
 export const useTableListEvents = () => {
     const dispatch = useAppDispatch();
 
-    const { listEvents, isLoadingGetEvents, isLoadingDeleteEvents  } = useAppSelector(
+    const { listMyEvents , isLoadingGetEvents, isLoadingDeleteEvents  } = useAppSelector(
         (state) => state.events
     );
 
     const onMounted = useCallback(async () => {
-        await dispatch(getAllEvents({}));
+        await dispatch(getMyEvents({}));
+        await dispatch(getAllUsers({}));
+        await dispatch(getAllRoles({}));
     }, [dispatch]);
 
     useEffect(() => {
@@ -40,18 +44,22 @@ export const useTableListEvents = () => {
         handleOpenConfirmDelete,
         handleCloseDialogConfirmDelete,
         handleOpenDialogAndSetCurrentEvents,
-        setCurrentEventsState
+        setCurrentEventsState,
+        handleCloseAssignUser,
+        handleOpenAssignUser,
+        openDialogAssignUser
     } = useDialogState();
 
     const columns = columnsEvents(
         handleOpenDialogAndSetCurrentEvents,
-        handleOpenConfirmDelete
+        handleOpenConfirmDelete,
+        handleOpenAssignUser
     );
 
     return {
         columns,
         onMounted,
-        listEvents,
+        listMyEvents,
         isLoadingGetEvents,
         openDialogEvents,
         currentEventsState,
@@ -63,6 +71,9 @@ export const useTableListEvents = () => {
         handleCloseDialogConfirmDelete,
         setCurrentEventsState,
         handleDelete,
-        isLoadingDeleteEvents
+        isLoadingDeleteEvents,
+        openDialogAssignUser,
+        handleOpenAssignUser,
+        handleCloseAssignUser,
     };
 };

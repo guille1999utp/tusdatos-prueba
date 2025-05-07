@@ -26,7 +26,7 @@ export const Highlight = ({
   return (
     <span
       className={cn(
-        "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5",
+        "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 px-1 py-0.5",
         className
       )}
     >
@@ -76,16 +76,16 @@ const features = [
     Icon: Calendar,
     name: "Eventos disponibles",
     description: "Listado de eventos disponibles.",
-    href: "/",
+    href: "/all-events",
     cta: "Leer más",
     background: <CardStack items={CARDS}  />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3 ",
   },
   {
     Icon: FileTextIcon,
-    name: "Eventos disponibles",
-    description: "Listado de eventos disponibles.",
-    href: "/",
+    name: "Mis eventos",
+    description: "Listado de mis eventos.",
+    href: "/events",
     cta: "Leer más",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3 ",
@@ -93,28 +93,28 @@ const features = [
   {
     Icon: GlobeIcon,
     name: "Multilingual",
-    description: "Supports 100+ languages and counting.",
+    description: "Soporta 100+ lenguajes.",
     href: "/",
-    cta: "Learn more",
+    cta: "Leer más",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
     Icon: InputIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    name: "Calendario",
+    description: "Usa tu calendario para llevar un mejor registro.",
     href: "/",
-    cta: "Learn more",
+    cta: "Leer más",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
   },
   {
     Icon: BellIcon,
-    name: "Notifications",
+    name: "Notificaciones",
     description:
-      "Get notified when someone shares a file or mentions you in a comment.",
+      "Se obtendran notificacion de las modificacion, contactame!!.",
     href: "/",
-    cta: "Learn more",
+    cta: "Leer más",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
   },
